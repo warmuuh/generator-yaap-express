@@ -26,21 +26,16 @@ var YaapExpressGenerator = yeoman.generators.Base.extend({
     this.log(chalk.magenta('Generating Express Skeleton with Yaap/Wire integration.'));
 
     var prompts = [{
-      type: 'confirm',
-      name: 'deepScanning',
-      message: 'Do you need deep annotation scanning (slower startup)?',
-      default: false
-    },
-    {
-      type: 'confirm',
+      type: 'string',
       name: 'restOnly',
-      message: 'Rest only (y) or server-side rendering with Jade (n)?',
-      default: false
+      pattern: /rest|jade/,
+      message: 'Rest only (rest) or server-side rendering with Jade (jade)?',
+      default: 'rest'
     }];
 
     this.prompt(prompts, function (props) {
-      this.deepScanning = props.deepScanning;
-      this.restOnly = props.restOnly;
+      
+      this.restOnly = props.restOnly === 'rest';
 
       done();
     }.bind(this));
@@ -48,25 +43,31 @@ var YaapExpressGenerator = yeoman.generators.Base.extend({
 
   app: function () {
     this.mkdir('app');
-    this.mkdir('app/public');
+    this.mkdir('app/model');
     this.mkdir('app/public/images');
     this.mkdir('app/public/javascripts');
     this.mkdir('app/public/stylesheets');
-    this.mkdir('app/controller');  
-    this.mkdir('app/model');  
-    this.mkdir('app/views');  
       
       
+    this.template('_app.js', 'app/app.js');
+    this.template('_server.js', 'app/server.js');
+    this.template('_config.json', 'app/config.json');
+      
+    this.template('controller/_dashboard.js', 'app/controller/dashboard.js');
     
-    this.copy('_app.js', 'app/app.js');
-    this.copy('_server.js', 'app/server.js');
-    this.copy('controller/_dashboard.js', 'app/controller/dashboard.js');
-    this.copy('views/dashboard.jade', 'app/views/dashboard.jade');
-    this.copy('views/layout.jade', 'app/views/layout.jade');
-      
-    this.copy('_bower.json', 'bower.json');
-    this.copy('_package.json', 'package.json');  
-      
+    if (!this.restOnly){
+        this.copy('views/dashboard.jade', 'app/views/dashboard.jade');
+        this.copy('views/layout.jade', 'app/views/layout.jade');
+    } else {
+        this.copy('public/index.html', 'app/public/index.html');
+        this.copy('public/javascripts/application.js', 'app/public/javascripts/application.js');
+    }
+    
+    this.copy('service/messageService.js', 'app/service/messageService.js');
+    this.copy('public/images/yeoman.png', 'app/public/images/yeoman.png');
+    this.template('_package.json', 'package.json');
+    this.template('_bower.json', 'bower.json'); 
+    this.copy('bowerrc', '.bowerrc'); 
   },
 
   projectfiles: function () {
@@ -74,5 +75,7 @@ var YaapExpressGenerator = yeoman.generators.Base.extend({
     this.copy('jshintrc', '.jshintrc');
   }
 });
+
+
 
 module.exports = YaapExpressGenerator;

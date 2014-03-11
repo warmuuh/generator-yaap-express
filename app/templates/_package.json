@@ -1,11 +1,11 @@
 {
   "name": "package",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "dependencies": {
-        "yaap": "0.1.0",
+        "yaap": "0.1.2",
         "wire": "0.10.0",
         "express":"3.3.4",
-        "pretty-monitor":"0.1.7",
-        "jade":"0.32.0"
+        "pretty-monitor":"0.1.7"<% if (!restOnly) { %>,
+        "jade":"0.32.0"<% } %>
   }
 }

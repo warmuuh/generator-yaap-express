@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <script type="application/javascript" src="/javascripts/lib/angular/angular.min.js"></script>
+        <script type="application/javascript" src="/javascripts/application.js"></script>
+    </head>
+    <body ng-app  ng-controller="Application">
+        <h1>Yaap rest-based example</h1>
+        <img src="images/yeoman.png">
+        <p>Message: {{message}} </p>
+        <form>
+            <label>Your Name: </label>
+            <input type="text" ng-model="name" placeholder="Type your name"/>
+            <button ng-click="fetchMessage()">Greet Me!</button>
+        </form>
+    </body>
+
+</html>

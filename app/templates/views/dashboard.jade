@@ -1,5 +1,9 @@
 extend layout
 
 block content
-	h1|Message: #{message}!
-    
+    img(src='/images/yeoman.png')
+    p|Message: #{message}!
+    form(action='/', method='post')
+        label Your name
+        input(name='name',type='text',value='',placeholder='Type your name here')
+        input(type='submit',value='Greet Me!')  

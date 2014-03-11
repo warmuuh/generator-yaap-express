@@ -1,27 +1,10 @@
-# generator-yaap-express [![Build Status](https://secure.travis-ci.org/warmuuh/generator-yaap-express.png?branch=master)](https://travis-ci.org/warmuuh/generator-yaap-express)
 
-> [Yeoman](http://yeoman.io) generator
-
+###Yaap-Express generator for Yeoman
+This generator scaffolds a basic web-application with a backend powered by [Wire.js](https://github.com/cujojs/wire) with [Yaap](https://github.com/warmuuh/yaap).
+With [yaap-extensions](https://github.com/warmuuh/yaap/blob/master/yaap/docs/annotations.md), a spring-like annotation-based development and dependency-injection is possible. (think @Autowired)
+Additionally, the [yaap-express](https://github.com/warmuuh/yaap/blob/master/yaap/docs/express.md) plugin for wire.js allows for easy creation of dynamic services similar to spring mvc.
 
 ## Getting Started
-
-### What is Yeoman?
-
-Trick question. It's not a thing. It's this guy:
-
-![](http://i.imgur.com/JHaAlBJ.png)
-
-Basically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.
-
-Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*
-
-```
-$ npm install -g yo
-```
-
-### Yeoman Generators
-
-Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
 
 To install generator-yaap-express from npm, run:
 
@@ -35,11 +18,39 @@ Finally, initiate the generator:
 $ yo yaap-express
 ```
 
-### Getting To Know Yeoman
+## What You Get
 
-Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
-
-If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
+This will  be generated for you, if you choose to develop a rest-based service:
+```
+<root>
+│
+└───app
+    │   app.js (the wiring context is setup here)
+    │   config.json (server configurations)
+    │   server.js (express server setup)
+    │
+    ├───controller
+    │       dashboard.js (example rest-controller)
+    │
+    ├───model
+    │
+    ├───service
+    │     messageService.js (service class from service-layer)
+    └───public (static content)
+        │   index.html (example angular application)
+        │
+        ├───images
+        │       yeoman.png (example static content)
+        │
+        ├───javascripts
+        │   │   application.js (example angular controller)
+        │   │
+        │   └───lib (3party browser libs go here)
+        │       └───angular
+        │
+        └───stylesheets
+```
+Alternatively, this generator can create a webapplication with server-side rendering (using [Jade](http://jade-lang.com/)).
 
 
 ## License

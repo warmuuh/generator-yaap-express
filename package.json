@@ -1,6 +1,6 @@
 {
   "name": "generator-yaap-express",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Yaap-Express generator for Rest/Jade-based WebApplications",
   "license": "MIT",
   "main": "app/index.js",

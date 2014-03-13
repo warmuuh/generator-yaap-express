@@ -1,4 +1,4 @@
-var path = require('path'); 
+var path = require('path');
 var express = require('express');
 require('pretty-monitor').start();
 

@@ -1,3 +1,4 @@
+/* jshint -W034 */
 'use strict';
 var util = require('util');
 var path = require('path');
@@ -23,14 +24,23 @@ var YaapExpressGenerator = yeoman.generators.Base.extend({
     this.log(this.yeoman);
 
     // replace it with a short and sweet description of your generator
-    this.log(chalk.magenta('Generating Express Skeleton with Yaap/Wire integration.'));
+    this.log(chalk.red('Generating Express Skeleton with Yaap/Wire integration.'));
 
     var prompts = [{
-      type: 'string',
+      type: 'list',
       name: 'restOnly',
-      pattern: /rest|jade/,
-      message: 'Rest only (rest) or server-side rendering with Jade (jade)?',
-      default: 'rest'
+      message: 'What kind of application do you want to generate?',
+      choices: [
+                {
+                    value: 'rest',
+                    name: 'Rest-service with client-side rendered frontend (using Angular).'
+                },
+                {
+                    value: 'jade',
+                    name: 'Web-application with server-side rendered frontend (using Jade).'
+                }
+            ], 
+      default: 0
     }];
 
     this.prompt(prompts, function (props) {

@@ -7,5 +7,8 @@
         "express":"3.3.4",
         "pretty-monitor":"0.1.7"<% if (!restOnly) { %>,
         "jade":"0.32.0"<% } %>
+  },
+  "scripts": {
+    "start": "cd app & node app.js"
   }
 }

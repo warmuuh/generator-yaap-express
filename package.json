@@ -1,7 +1,7 @@
 {
   "name": "generator-yaap-express",
   "version": "0.1.0",
-  "description": "Yeoman generator",
+  "description": "Yaap-Express generator for Rest/Jade-based WebApplications",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "warmuuh/generator-yaap-express",

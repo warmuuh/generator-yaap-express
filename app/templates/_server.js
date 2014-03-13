@@ -18,6 +18,7 @@ app._initialize = function(config)/*@PostConstruct @Autowired*/{
     app.use(express.logger('dev'));
     app.use(express.bodyParser());
     
+    app.disable("x-powered-by");
     
     app.use(app.router);
     app.use(express.static('public'));

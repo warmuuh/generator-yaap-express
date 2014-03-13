@@ -1,8 +1,9 @@
-
 ###Yaap-Express generator for Yeoman
 This generator scaffolds a basic web-application with a backend powered by [Wire.js](https://github.com/cujojs/wire) with [Yaap](https://github.com/warmuuh/yaap).
 With [yaap-extensions](https://github.com/warmuuh/yaap/blob/master/yaap/docs/annotations.md), a spring-like annotation-based development and dependency-injection is possible. (think @Autowired)
 Additionally, the [yaap-express](https://github.com/warmuuh/yaap/blob/master/yaap/docs/express.md) plugin for wire.js allows for easy creation of dynamic services similar to spring mvc.
+
+There is a small intro which can be found [here](cubiccow.blogspot.de/2014/03/yeoman-generator-for-yaap-applications.html).
 
 ## Getting Started
 
